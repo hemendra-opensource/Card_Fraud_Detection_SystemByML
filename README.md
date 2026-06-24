@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🛡️ FraudShield AI
 ### AI-Powered Credit Card Fraud Detection & Customer Segmentation System
 
@@ -352,3 +353,7 @@ Built as an end-to-end ML portfolio project demonstrating:
 <div align="center">
 <strong>FraudShield AI</strong> · Random Forest + K-Means · PaySim · ROC-AUC: 0.9991
 </div>
+=======
+# Card_Fraud_Detection_SystemByML
+A machine learning project that detects fraudulent credit card transactions and segments customers based on spending behavior. It helps improve financial security by identifying anomalies in real time and enables targeted insights by grouping customers into meaningful clusters for better decision-making and personalized services.
+>>>>>>> 70bd2e53bbfed8e86ecc1eb86db387f54dd3f5c2
