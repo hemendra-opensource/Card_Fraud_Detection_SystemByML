@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # 🛡️ FraudShield AI
 ### AI-Powered Credit Card Fraud Detection & Customer Segmentation System
 
