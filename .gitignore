@@ -1,6 +1,34 @@
+# Node
 node_modules/
+
+# Environment
 .env
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# ML artifacts
+models/
+*.pkl
+*.joblib
+*.h5
+
+# Data (large datasets only)
+data/
+*.zip
+
+# Build outputs
 dist/
 build/
-venv/
-__pycache__/
+
+# Logs
+*.log
+logs/
+
+# OS files
+.DS_Store
+Thumbs.db
