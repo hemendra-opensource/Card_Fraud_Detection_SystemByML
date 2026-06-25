@@ -179,10 +179,25 @@ with tab1:
                 height=380,
                 legend=dict(font=dict(color="#94a3b8"), bgcolor="rgba(0,0,0,0)",
                             x=0.45, y=0.1),
-                xaxis=dict(title="False Positive Rate", titlefont=dict(color="#64748b"),
-                           tickfont=dict(color="#64748b"), gridcolor=GRID_COLOR, range=[0,1]),
-                yaxis=dict(title="True Positive Rate", titlefont=dict(color="#64748b"),
-                           tickfont=dict(color="#64748b"), gridcolor=GRID_COLOR, range=[0,1]),
+                xaxis=dict(
+    title=dict(
+        text="False Positive Rate",
+        font=dict(color="#64748b")
+    ),
+    tickfont=dict(color="#64748b"),
+    gridcolor=GRID_COLOR,
+    range=[0,1]
+),
+
+yaxis=dict(
+    title=dict(
+        text="True Positive Rate",
+        font=dict(color="#64748b")
+    ),
+    tickfont=dict(color="#64748b"),
+    gridcolor=GRID_COLOR,
+    range=[0,1]
+),
                 margin=dict(l=20, r=20, t=50, b=20),
                 font=dict(family="Inter")
             )
@@ -255,9 +270,15 @@ with tab2:
             height=380,
             showlegend=False,
             xaxis=dict(tickfont=dict(color="#94a3b8"), gridcolor=GRID_COLOR),
-            yaxis=dict(title="Score (%)", titlefont=dict(color="#64748b"),
-                       tickfont=dict(color="#64748b"), gridcolor=GRID_COLOR,
-                       range=[99.4, 100.1]),
+            yaxis=dict(
+    title=dict(
+        text="Score (%)",
+        font=dict(color="white")
+    ),
+    tickfont=dict(color="#64748b"),
+    gridcolor=GRID_COLOR,
+    range=[99.4, 100.1]
+),
             margin=dict(l=10, r=10, t=50, b=10),
             font=dict(family="Inter"),
             bargap=0.3
@@ -285,7 +306,7 @@ with tab2:
             height=380,
             legend=dict(font=dict(color="#94a3b8", size=10), bgcolor="rgba(0,0,0,0)"),
             xaxis=dict(tickfont=dict(color="#94a3b8"), gridcolor=GRID_COLOR),
-            yaxis=dict(title="Score (%)", titlefont=dict(color="#64748b"),
+            yaxis=dict(title=dict(text="Score (%)", font=dict(color="#64748b")),
                        tickfont=dict(color="#64748b"), gridcolor=GRID_COLOR,
                        range=[99.4, 100.1]),
             margin=dict(l=10, r=10, t=50, b=10),
@@ -442,7 +463,7 @@ with tab4:
             height=380,
             legend=dict(font=dict(color="#94a3b8"), bgcolor="rgba(0,0,0,0)"),
             xaxis=dict(tickfont=dict(color="#94a3b8"), gridcolor=GRID_COLOR),
-            yaxis=dict(title="Score (%)", titlefont=dict(color="#64748b"),
+            yaxis=dict(title=dict(text="Score (%)", font=dict(color="#64748b")),
                        tickfont=dict(color="#64748b"), gridcolor=GRID_COLOR,
                        range=[99.6, 100.05]),
             margin=dict(l=10, r=10, t=50, b=10),

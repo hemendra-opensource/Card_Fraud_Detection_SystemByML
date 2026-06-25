@@ -14,6 +14,13 @@ import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
+def hex_to_rgba(hex_color, alpha=0.1):
+    hex_color = hex_color.lstrip("#")
+    r = int(hex_color[0:2], 16)
+    g = int(hex_color[2:4], 16)
+    b = int(hex_color[4:6], 16)
+    return f"rgba({r},{g},{b},{alpha})"
+
 st.set_page_config(page_title="Customer Segmentation · FraudShield AI", page_icon="👥", layout="wide")
 
 from dashboard.sidebar import render_sidebar
@@ -236,13 +243,23 @@ with tab2:
             label_loop = radar_labels + [radar_labels[0]]
             color = SEGMENT_COLORS.get(row['segment_label'], "#94a3b8")
 
+            # fig_radar.add_trace(go.Scatterpolar(
+            #     r=norm_vals, theta=label_loop,
+            #     fill='toself', name=row['segment_label'],
+            #     fillcolor=color.replace("#", "rgba(").replace("10b981", "16,185,129") + ",0.1)",
+            #     line=dict(color=color, width=2),
+            #     opacity=0.8
+            # ))
+
             fig_radar.add_trace(go.Scatterpolar(
-                r=norm_vals, theta=label_loop,
-                fill='toself', name=row['segment_label'],
-                fillcolor=color.replace("#", "rgba(").replace("10b981", "16,185,129") + ",0.1)",
-                line=dict(color=color, width=2),
-                opacity=0.8
-            ))
+    r=norm_vals,
+    theta=label_loop,
+    fill='toself',
+    name=row['segment_label'],
+    fillcolor=hex_to_rgba(color, 0.1),
+    line=dict(color=color, width=2),
+    opacity=0.8
+))
 
         fig_radar.update_layout(
             polar=dict(
@@ -297,7 +314,7 @@ with tab2:
             height=420,
             xaxis=dict(tickfont=dict(color="#94a3b8", size=9), gridcolor=GRID_COLOR,
                        tickangle=-15),
-            yaxis=dict(title=metric_labels[metric_select], titlefont=dict(color="#64748b"),
+            yaxis=dict(title=dict(text=metric_labels[metric_select], font=dict(color="#64748b")),
                        tickfont=dict(color="#64748b"), gridcolor=GRID_COLOR),
             margin=dict(l=10, r=10, t=50, b=80),
             font=dict(family="Inter")

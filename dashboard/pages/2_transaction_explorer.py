@@ -159,9 +159,9 @@ with col1:
         paper_bgcolor=CHART_BG, plot_bgcolor=CHART_BG,
         height=320,
         legend=dict(font=dict(color="#94a3b8"), bgcolor="rgba(0,0,0,0)"),
-        xaxis=dict(title="Fraud Score (%)", titlefont=dict(color="#64748b"),
+        xaxis=dict(title=dict(text="Fraud Score (%)", font=dict(color="#64748b")),
                    tickfont=dict(color="#64748b"), gridcolor=GRID_COLOR),
-        yaxis=dict(title="Count", titlefont=dict(color="#64748b"),
+        yaxis=dict(title=dict(text="Count", font=dict(color="#64748b")),
                    tickfont=dict(color="#64748b"), gridcolor=GRID_COLOR),
         margin=dict(l=10, r=10, t=40, b=10),
         font=dict(family="Inter")
@@ -264,7 +264,7 @@ with col4:
         height=320,
         legend=dict(font=dict(color="#94a3b8"), bgcolor="rgba(0,0,0,0)",
                     orientation="h", yanchor="bottom", y=-0.2),
-        xaxis=dict(title="Day", titlefont=dict(color="#64748b"),
+        xaxis=dict(title=dict(text="Day", font=dict(color="#64748b")),
                    tickfont=dict(color="#64748b"), gridcolor=GRID_COLOR),
         margin=dict(l=10, r=10, t=40, b=40),
         font=dict(family="Inter")
@@ -297,9 +297,10 @@ with col5:
         paper_bgcolor=CHART_BG, plot_bgcolor=CHART_BG,
         height=320,
         showlegend=False,
-        yaxis=dict(title="Amount ($)", titlefont=dict(color="#64748b"),
+        yaxis=dict(title=dict(text="Amount ($)", font=dict(color="#64748b")),
                    tickfont=dict(color="#64748b"), gridcolor=GRID_COLOR),
-        xaxis=dict(tickfont=dict(color="#94a3b8")),
+        xaxis=dict(title=dict(text="Risk Category", font=dict(color="#94a3b8")),
+                   tickfont=dict(color="#94a3b8")),
         margin=dict(l=10, r=10, t=40, b=10),
         font=dict(family="Inter")
     )
@@ -328,7 +329,7 @@ def highlight_risk(val):
               "Low Risk": "color: #10b981"}
     return colors.get(val, "")
 
-styled = display_df.style.applymap(highlight_risk, subset=['risk_category']) \
+styled = display_df.style.map(highlight_risk, subset=['risk_category']) \
                          .format({'amount': '${:,.2f}', 'fraud_score': '{:.1f}%'})
 st.dataframe(styled, use_container_width=True, height=420)
 
